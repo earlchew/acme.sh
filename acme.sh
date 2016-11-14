@@ -2557,6 +2557,13 @@ issue() {
 
         _debug d_api "$d_api"
 
+         (
+           for t in "$txtdomain" "$txt" ; do
+             printf '%s\n' "$t"
+           done
+         ) > "$DOMAIN_PATH/$d.txt"
+        _info "Saved $d challenge to $DOMAIN_PATH/$d.txt"
+
         if [ "$d_api" ]; then
           _info "Found domain api file: $d_api"
         else
