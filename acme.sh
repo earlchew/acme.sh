@@ -346,11 +346,7 @@ _sed_i() {
 }
 
 _egrep_o() {
-  if _contains "$(egrep -o 2>&1)" "egrep: illegal option -- o"; then
-    sed -n 's/.*\('"$1"'\).*/\1/p'
-  else
-    egrep -o "$1"
-  fi
+  sed -n 's/.*\('"$1"'\).*/\1/p'
 }
 
 #Usage: file startline endline
