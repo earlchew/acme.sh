@@ -4,7 +4,8 @@ VER=2.6.5
 
 PROJECT_NAME="acme.sh"
 
-PROJECT_ENTRY="acme.sh"
+PROJECT_ENTRY_PATH="$0"
+PROJECT_ENTRY="${PROJECT_ENTRY##*/}"
 
 PROJECT="https://github.com/Neilpang/$PROJECT_NAME"
 
@@ -3739,7 +3740,7 @@ install() {
 
   chmod 700 "$LE_WORKING_DIR"
 
-  cp "$PROJECT_ENTRY" "$LE_WORKING_DIR/" && chmod +x "$LE_WORKING_DIR/$PROJECT_ENTRY"
+  cp "$PROJECT_ENTRY_PATH" "$LE_WORKING_DIR/" && chmod +x "$LE_WORKING_DIR/$PROJECT_ENTRY"
 
   if [ "$?" != "0" ]; then
     _err "Install failed, can not copy $PROJECT_ENTRY"
