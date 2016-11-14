@@ -1698,11 +1698,11 @@ _initpath() {
     CERT_HOME="$_DEFAULT_CERT_HOME"
   fi
 
+  mkdir -p "$CA_DIR"
+
   if [ -z "$1" ]; then
     return 0
   fi
-
-  mkdir -p "$CA_DIR"
 
   domain="$1"
   _ilength="$2"
