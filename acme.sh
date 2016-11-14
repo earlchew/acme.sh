@@ -2474,9 +2474,8 @@ issue() {
     _index=1
     _currentRoot=""
     for d in $alldomains; do
-      _info "Getting webroot for domain" "$d"
       _w="$(echo $Le_Webroot | cut -d , -f $_index)"
-      _info _w "$_w"
+      _info "Using webroot for domain" "$d" "$_w"
       if [ "$_w" ]; then
         _currentRoot="$_w"
       fi
