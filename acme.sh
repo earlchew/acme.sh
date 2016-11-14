@@ -4221,7 +4221,7 @@ _process() {
         ;;
       --dns)
         wvalue="dns"
-        if ! _startswith "$2" "-"; then
+        if [ $# -ge 2 ] && ! _startswith "$2" "-"; then
           wvalue="$2"
           shift
         fi
@@ -4361,10 +4361,10 @@ _process() {
         ;;
       --log | --logfile)
         _log="1"
-        _logfile="$2"
-        if _startswith "$_logfile" '-'; then
+        if [ $# -lt 2 ] || _startswith "$2" '-'; then
           _logfile=""
         else
+          _logfile="$2"
           shift
         fi
         LOG_FILE="$_logfile"
@@ -4379,7 +4379,7 @@ _process() {
         ;;
       --auto-upgrade)
         _auto_upgrade="$2"
-        if [ -z "$_auto_upgrade" ] || _startswith "$_auto_upgrade" '-'; then
+        if [ $# -lt 2 ] || _startswith "$_auto_upgrade" '-'; then
           _auto_upgrade="1"
         else
           shift
